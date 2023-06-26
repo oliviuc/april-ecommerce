@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --color-theme: #f76b6a;
+  --color-primary: #f3f3f3;
+  --color-primary-light: #e1e1e1;
+  --color-primary-darker: #ababab;
+  --color-primary-accent: #696969;
+  --color-secondary: white;
+  --color-accent: #333;
+}
+
+*::-moz-selection {
+  background-color: var(--color-theme);
+  color: white;
+}
+
+*::selection {
+  background-color: var(--color-theme);
+  color: white;
+}
+
+.sliderHover {
+  overflow: hidden;
+}
+.sliderHover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  rotate: -35deg;
+  -webkit-transform: scale3d(1.9, 1.4, 1) translate3d(0, -200%, 0);
+          transform: scale3d(1.9, 1.4, 1) translate3d(0, -200%, 0);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 600ms;
+          transition-duration: 600ms;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+.sliderHover:hover::after {
+  -webkit-transform: scale3d(1.9, 1.4, 1) translate3d(0, 200%, 0);
+          transform: scale3d(1.9, 1.4, 1) translate3d(0, 200%, 0);
+}
+
+input {
+  border-width: 0;
+  border-color: transparent;
+  outline: none;
+  background-color: transparent;
+}
+
+input.focus:focus, input.focus:focus-visible, input.focus:focus-within {
+  border: 1px solid var(--color-theme);
+}
+
+input[type=number] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  display: none;
+}
+
+.grid-expand {
+  grid-template-rows: 1fr;
+}
+
+.anim-appear {
+  -webkit-animation: appear 1s ease forwards;
+          animation: appear 1s ease forwards;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
